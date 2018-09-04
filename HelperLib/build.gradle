@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply from:'config.gradle'
+
+android {
+
+    compileSdkVersion project.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.ext.android.minSdkVersion
+        targetSdkVersion project.ext.android.targetSdkVersion
+        versionCode project.ext.android.versionCode
+        versionName project.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project.ext.dependencies["appcompat-v7"]
+    implementation project.ext.dependencies["support-v4"]
+    implementation project.ext.dependencies["retrofit2"]
+    implementation project.ext.dependencies["converter-scalars"]
+    implementation project.ext.dependencies["converter-fastjson"]
+    implementation project.ext.dependencies["adapter-rxjava2"]
+    implementation project.ext.dependencies["rxjava"]
+    implementation project.ext.dependencies["rxandroid"]
+    implementation project.ext.dependencies["rxlifecycle"]
+    implementation project.ext.dependencies["rxlifecycle-components"]
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+}
+
+
