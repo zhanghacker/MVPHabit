@@ -5,13 +5,13 @@
 
 ## 1. 快速上手
 
-### 1.1初始化项目
+### 1.1 初始化项目
 	//初始化项目在Applicatin里面调用
 	 HelperConfig.init(this);
 ### 1.2 第一个Activity
 >&emsp;&emsp; MVP大家应该比较熟悉，我们把MP合并P，只用到VP。正常的MVP要有TestActivity、Testcontract、Testpresenter；如果你集成dagger要多两个Testcompanet、TestModule(瞄一眼上面个个类名称，等下下面例子会用到哦)。**建议使用：dagger**，接下来例子也是按这个来举例。</br>
 
-**注意：**如果你使用dagger，请自行在app的buidle.gradle添加
+注意：如果你使用dagger，请自行在app的buidle.gradle添加
 >annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
 #### 1.2.1 继承Base
 TestActivityr继承BaseDaggerActivity</br>
@@ -82,7 +82,7 @@ TestPresenter继承BasePresenter</br>
     }
 >无需再去 unbinder =ButterKnife.bind(this, view）、 unbinder.unbind();
 
-**注意：**使用如果你使用butterknife，请自行在app的buidle.gradle添加
+注意：使用如果你使用butterknife，请自行在app的buidle.gradle添加
 >annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 ### 1.5 网络工具的配置
 	//请求案例
