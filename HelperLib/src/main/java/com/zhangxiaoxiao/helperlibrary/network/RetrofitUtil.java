@@ -96,9 +96,18 @@ public class RetrofitUtil {
         private Retrofit.Builder retrofit;
         private OkHttpClient.Builder okHttpClient;
 
-        public Builder(String host) {
+        private Builder(String host){
             this.okHttpClient = new OkHttpClient.Builder();
             this.retrofit = getService(host);
+        }
+
+        /**
+         * 创建构造器
+         * @param host
+         * @return
+         */
+        public static Builder create(String host){
+            return new Builder(host);
         }
 
         /**
