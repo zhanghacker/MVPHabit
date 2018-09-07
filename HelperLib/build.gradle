@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply from:'config.gradle'
-
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.zhanghacker' //自己的Github用户名
 android {
 
     compileSdkVersion project.ext.android.compileSdkVersion
