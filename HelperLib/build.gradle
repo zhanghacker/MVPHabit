@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 apply from:'config.gradle'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zhanghacker' //自己的Github用户名
 android {
 
     compileSdkVersion project.ext.android.compileSdkVersion
@@ -27,7 +25,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
     implementation project.ext.dependencies["appcompat-v7"]
     implementation project.ext.dependencies["support-v4"]
     api project.ext.dependencies["retrofit2"]
@@ -43,7 +41,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
 
 }
 
