@@ -22,7 +22,18 @@ public class HelperConfig {
      *
      * @param context 上下文
      */
-    public static void init(Context context) {
+    public static Builder init(Context context) {
         HelperConfig.context = context.getApplicationContext();
+        return Builder.create();
+    }
+
+    private static class Builder{
+
+        private Builder() {
+        }
+
+        public  static Builder create(){
+            return new Builder();
+        }
     }
 }
