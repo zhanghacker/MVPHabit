@@ -26,17 +26,37 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat-v7"]
-    implementation rootProject.ext.dependencies["support-v4"]
-    api rootProject.ext.dependencies["retrofit2"]
+    api (rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api (rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    api rootProject.ext.dependencies["annotations"]
+
+    api (rootProject.ext.dependencies["retrofit2"]){
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
     api rootProject.ext.dependencies["converter-scalars"]
     api rootProject.ext.dependencies["converter-fastjson"]
-    api rootProject.ext.dependencies["adapter-rxjava2"]
+    api (rootProject.ext.dependencies["adapter-rxjava2"]) {
+        exclude module: 'rxjava'
+        exclude module: 'okhttp'
+        exclude module: 'retrofit'
+        exclude module: 'okio'
+    }
     api rootProject.ext.dependencies["rxjava"]
-    api rootProject.ext.dependencies["rxandroid"]
+    api (rootProject.ext.dependencies["rxandroid"]) {
+        exclude module: 'rxjava'
+    }
     api rootProject.ext.dependencies["dagger"]
+
     annotationProcessor rootProject.ext.dependencies["dagger-processor"]
-    api rootProject.ext.dependencies["butterknife"]
+    api (rootProject.ext.dependencies["butterknife"]){
+        exclude module: 'support-annotations'
+        exclude module: 'support-compat'
+    }
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
