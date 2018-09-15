@@ -1,15 +1,15 @@
 apply plugin: 'com.android.library'
-
+apply from:'config.gradle'
 
 android {
 
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion project.ext.android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        minSdkVersion project.ext.android.minSdkVersion
+        targetSdkVersion project.ext.android.targetSdkVersion
+        versionCode project.ext.android.versionCode
+        versionName project.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -27,18 +27,18 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat-v7"]
-    implementation rootProject.ext.dependencies["support-v4"]
-    api rootProject.ext.dependencies["retrofit2"]
-    api rootProject.ext.dependencies["converter-scalars"]
-    api rootProject.ext.dependencies["converter-fastjson"]
-    api rootProject.ext.dependencies["adapter-rxjava2"]
-    api rootProject.ext.dependencies["rxjava"]
-    api rootProject.ext.dependencies["rxandroid"]
-    api rootProject.ext.dependencies["dagger"]
-    annotationProcessor rootProject.ext.dependencies["dagger-processor"]
-    api rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation project.ext.dependencies["appcompat-v7"]
+    implementation project.ext.dependencies["support-v4"]
+    api project.ext.dependencies["retrofit2"]
+    api project.ext.dependencies["converter-scalars"]
+    api project.ext.dependencies["converter-fastjson"]
+    api project.ext.dependencies["adapter-rxjava2"]
+    api project.ext.dependencies["rxjava"]
+    api project.ext.dependencies["rxandroid"]
+    api project.ext.dependencies["dagger"]
+    annotationProcessor project.ext.dependencies["dagger-processor"]
+    api project.ext.dependencies["butterknife"]
+    annotationProcessor project.ext.dependencies["butterknife-compiler"]
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
