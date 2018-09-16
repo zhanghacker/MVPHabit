@@ -1,4 +1,4 @@
-# MvpLib [![](https://www.jitpack.io/v/zhanghacker/HelperHabit.svg)](https://www.jitpack.io/#zhanghacker/HelperHabit)
+# MVPHabit [![](https://www.jitpack.io/v/zhanghacker/HelperHabit.svg)](https://www.jitpack.io/#zhanghacker/HelperHabit)
 
 ## 简介
 &emsp;&emsp;**基于MVP模式开发框架，整合Rxjava+Retrofit+Dagger+Butterknife等主流模块，加入中一些比较常用的工具类，进行一些抽取和整合**。有人会说有市面上已经MVPArms框架封装不是挺好的，我只能告诉你，那个太冗余了，很多没必要的东西太多，本框架主要是轻量级，少冗余，可扩展性高一些。如果你觉得框架的某些代码有帮助到你，请你star支持一下，作者会一直维护，非常感谢！
@@ -199,6 +199,8 @@ TestPresenter继承BasePresenter</br>
 	decrypt3DES, decryptHexString3DES, decryptBase64_3DES : 3DES 解密
 	encryptAES, encryptAES2HexString, encryptAES2Base64   : AES 加密
 	decryptAES, decryptHexStringAES, decryptBase64AES     : AES 解密
+## 混淆
+请参考MVPLib目录下的proguard-rules.pro文件，包含MVPHabit中依赖的所有第三方library。
 ### 继续更新中...
 
 

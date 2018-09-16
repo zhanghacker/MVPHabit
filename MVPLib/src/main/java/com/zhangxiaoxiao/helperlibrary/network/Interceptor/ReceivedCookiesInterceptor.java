@@ -9,6 +9,8 @@ import com.zhangxiaoxiao.helperlibrary.utils.SP;
 import java.io.IOException;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 
@@ -28,12 +30,18 @@ public class ReceivedCookiesInterceptor implements Interceptor {
         if (!originalResponse.headers("Set-Cookie").isEmpty()) {
             final StringBuffer cookieBuffer = new StringBuffer();
             Observable.fromIterable(originalResponse.headers("Set-Cookie"))
-                    .map(s -> {
-                        String[] cookieArray = s.split(";"); // JSESSIONID=aaaQElHouiqmGh-oaQCtv; path=/
-                        return cookieArray[0];
+                    .map(new Function<String, String>() {
+                        @Override
+                        public String apply(String s) throws Exception {
+                            String[] cookieArray = s.split(";"); // JSESSIONID=aaaQElHouiqmGh-oaQCtv; path=/
+                            return cookieArray[0];
+                        }
                     })
-                    .subscribe(cookie -> {
-                        cookieBuffer.append(cookie).append(";");
+                    .subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String cookie) throws Exception {
+                                cookieBuffer.append(cookie).append(";");
+                        }
                     });
             SP.getInstance(HelperConfig.getContext()).putString(GlobalConstans.SET_COOKIE,cookieBuffer.toString());
         }

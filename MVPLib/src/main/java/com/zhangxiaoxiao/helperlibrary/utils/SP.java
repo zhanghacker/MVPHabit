@@ -117,7 +117,7 @@ public class SP {
     }
 
     public Set<String> getStringSet(String key) {
-        return sp.getStringSet("StringSet-" + key, new HashSet<>());
+        return sp.getStringSet("StringSet-" + key, new HashSet<String>());
     }
 
     public void putStringSet(String key, Set<String> value) {
