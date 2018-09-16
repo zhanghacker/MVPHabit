@@ -19,15 +19,15 @@
     
         dependencies {
                     //x.x.x自行更换最新版本
-        	        implementation 'com.github.zhanghacker:HelperHabit:x.x.x'
+        	        implementation 'com.github.zhanghacker:MVPHabit:x.x.x'
         	}
 或本地依赖
 
-下载例子程序，在主项目app的build.gradle中依赖例子程序中的helperlib：
+下载例子程序，在主项目app的build.gradle中依赖例子程序中的MVPLib：
 
         dependencies {	
             ...
-            implementation project(':HelperLib')
+            implementation project(':MVPLib')
         }
 >如果不是远程依赖，而是下载的例子程序，那么还需要将例子程序中的config.gradle放入你的主项目根目录中，然后在根目录build.gradle的第一行加入：
 
