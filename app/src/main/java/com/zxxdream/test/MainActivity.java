@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.zhangxiaoxiao.helperlibrary.base.BaseActivity;
-import com.zhangxiaoxiao.helperlibrary.base.HelperConfig;
 import com.zhangxiaoxiao.helperlibrary.constants.PermissionConstants;
 import com.zhangxiaoxiao.helperlibrary.network.RetrofitUtil;
 import com.zhangxiaoxiao.helperlibrary.utils.PermissionUtils;
@@ -25,6 +24,8 @@ import butterknife.OnClick;
  */
 public class MainActivity extends BaseActivity {
 
+    public static String TAG = "MVPHabit";
+
     @BindView(R.id.bt)
     Button mBt;
     @BindView(R.id.bt_permission)
@@ -42,8 +43,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        //初始化
-        HelperConfig.init(this);
+
     }
 
     @OnClick({R.id.bt, R.id.bt_permission, R.id.dagger_mvp})
@@ -55,9 +55,9 @@ public class MainActivity extends BaseActivity {
                 userApi.login("15880858837")
                         .compose(RxUtils.schedulersTransformer())
                         .subscribe(entity -> {
-                            Log.e("tag", entity);
+                            Log.e(TAG, entity);
                         }, ex -> {
-                            Log.e("tag", ex.toString());
+                            Log.e(TAG, ex.toString());
                         });
                 break;
             case R.id.bt_permission:

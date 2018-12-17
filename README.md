@@ -36,7 +36,14 @@
 
 ### 2.1 初始化项目
 	//初始化项目在Applicatin里面调用
-	 HelperConfig.init(this);
+	 HelperConfig.init(this)
+	 //文件名称："MVPHabit-Exception-"+time + ".txt"  文件名称
+     //默认路径：SDCard/Android/data/你的应用包名/cache/目录 ->默认的扑捉异常路径
+	 .addCrashException()
+	 //自定义文件或路径
+	 //T->file或crashDirPath
+	 //M->捕捉回调方法
+	 .addCrashException(T,M);
 ### 2.2 第一个Activity
 >&emsp;&emsp; MVP大家应该比较熟悉，我们把MP合并P，只用到VP。正常的MVP要有TestActivity、Testcontract、Testpresenter；如果你集成dagger要多两个Testcompanet、TestModule(瞄一眼上面个个类名称，等下下面例子会用到哦)。**建议使用：dagger**，接下来例子也是按这个来举例。</br>
 
@@ -143,62 +150,8 @@ TestPresenter继承BasePresenter</br>
 * KeyboardUtils(软键盘工具)
 * EncodeUtils(编码工具)
 * EncryptUtils(解密解密工具)
-### 3.1 PermissionsTool.java
-	getPermissions : 获取应用权限
-	isGranted      : 判断权限是否被授予
-	openAppSettings: 打开应用具体设置
-	permission     : 设置请求权限
-	rationale      : 设置拒绝权限后再次请求的回调接口
-	callback       : 设置回调
-	theme          : 设置主题
-	request        : 开始请求
-
-### 3.2 SizeUtils.java
-	dp2px, px2dp     : dp 与 px 转换
-	sp2px, px2sp     : sp 与 px 转换
-	applyDimension   : 各种单位转换
-	forceGetViewSize : 在 onCreate 中获取视图的尺寸
-	measureView      : 测量视图尺寸
-	getMeasuredWidth : 获取测量视图宽度
-	getMeasuredHeight: 获取测量视图高度
-
-### 3.3 SizeUtils.java
-	showSoftInput                   : 动态显示软键盘
-	hideSoftInput                   : 动态隐藏软键盘
-	toggleSoftInput                 : 切换键盘显示与否状态
-	isSoftInputVisible              : 判断软键盘是否可见
-	registerSoftInputChangedListener: 注册软键盘改变监听器
-	clickBlankArea2HideSoftInput    : 点击屏幕空白区域隐藏软键盘
-### 3.4 EncodeUtils.java
-	urlEncode          : URL 编码
-	urlDecode          : URL 解码
-	base64Encode       : Base64 编码
-	base64Encode2String: Base64 编码
-	base64Decode       : Base64 解码
-	base64UrlSafeEncode: Base64URL 安全编码
-	htmlEncode         : Html 编码
-	htmlDecode         : Html 解码
-### 3.5 EncryptUtils.java
-	encryptMD2, encryptMD2ToString                        : MD2 加密
-	encryptMD5, encryptMD5ToString                        : MD5 加密
-	encryptMD5File, encryptMD5File2String                 : MD5 加密文件
-	encryptSHA1, encryptSHA1ToString                      : SHA1 加密
-	encryptSHA224, encryptSHA224ToString                  : SHA224 加密
-	encryptSHA256, encryptSHA256ToString                  : SHA256 加密
-	encryptSHA384, encryptSHA384ToString                  : SHA384 加密
-	encryptSHA512, encryptSHA512ToString                  : SHA512 加密
-	encryptHmacMD5, encryptHmacMD5ToString                : HmacMD5 加密
-	encryptHmacSHA1, encryptHmacSHA1ToString              : HmacSHA1 加密
-	encryptHmacSHA224, encryptHmacSHA224ToString          : HmacSHA224 加密
-	encryptHmacSHA256, encryptHmacSHA256ToString          : HmacSHA256 加密
-	encryptHmacSHA384, encryptHmacSHA384ToString          : HmacSHA384 加密
-	encryptHmacSHA512, encryptHmacSHA512ToString          : HmacSHA512 加密
-	encryptDES, encryptDES2HexString, encryptDES2Base64   : DES 加密
-	decryptDES, decryptHexStringDES, decryptBase64DES     : DES 解密
-	encrypt3DES, encrypt3DES2HexString, encrypt3DES2Base64: 3DES 加密
-	decrypt3DES, decryptHexString3DES, decryptBase64_3DES : 3DES 解密
-	encryptAES, encryptAES2HexString, encryptAES2Base64   : AES 加密
-	decryptAES, decryptHexStringAES, decryptBase64AES     : AES 解密
+* ImageUtils(图片操作工具)
+* CrashUtils(异常捕捉工作)
 ## 混淆
 请参考MVPLib目录下的proguard-rules.pro文件，包含MVPHabit中依赖的所有第三方library。
 ### 继续更新中...
