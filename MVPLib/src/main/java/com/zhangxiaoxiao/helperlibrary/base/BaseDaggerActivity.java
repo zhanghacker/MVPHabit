@@ -35,10 +35,10 @@ public abstract class BaseDaggerActivity<T1 extends BasePresenter> extends AppCo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initInjector();//dagger框架注入
         mRootView = createView(null, null, savedInstanceState);
         setContentView(mRootView);
         AppManager.getAppManager().addActivity(this);
-        initInjector();//dagger框架注入
         bindView(mRootView, savedInstanceState);
         initData();//初始化数据
     }

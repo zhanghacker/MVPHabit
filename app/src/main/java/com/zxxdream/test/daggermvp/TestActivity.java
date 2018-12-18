@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.zhangxiaoxiao.helperlibrary.base.BaseDaggerActivity;
 import com.zxxdream.test.R;
+import com.zxxdream.test.base.MyApplication;
 
 import javax.inject.Inject;
 
@@ -23,8 +24,11 @@ public class TestActivity extends BaseDaggerActivity<TestPresenter> implements T
     Button mButton;
     @BindView(R.id.textView)
     TextView mTextView;
+
     @Inject
     TestPresenter mTestPresenter;
+
+
 
     public static void action(Context context){
         Intent intent = new Intent(context,TestActivity.class);
@@ -41,6 +45,7 @@ public class TestActivity extends BaseDaggerActivity<TestPresenter> implements T
         super.initInjector();
         DaggerTestComponent.builder()
                 .testModule(new TestModule(this))
+                .appComponent(MyApplication.getAppComponent(this))
                 .build().inject(this);
     }
 
@@ -50,6 +55,7 @@ public class TestActivity extends BaseDaggerActivity<TestPresenter> implements T
 
     @Override
     public void initData() {
+
     }
 
     @Override

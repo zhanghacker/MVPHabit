@@ -9,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * Author:  xxzhang
  * CreateAt:  2018/9/5  16:05
  * Description:  管理生命周期
- * Copyright © andacx Inc. All Rights Reserved
+ * Copyright © itzxx Inc. All Rights Reserved
  */
 public class BasePresenter implements IBasePresenter {
 

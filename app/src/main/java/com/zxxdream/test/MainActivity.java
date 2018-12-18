@@ -1,7 +1,6 @@
 package com.zxxdream.test;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,6 +10,8 @@ import com.zhangxiaoxiao.helperlibrary.network.RetrofitUtil;
 import com.zhangxiaoxiao.helperlibrary.utils.PermissionUtils;
 import com.zhangxiaoxiao.helperlibrary.utils.RxUtils;
 import com.zxxdream.test.daggermvp.TestActivity;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -54,27 +55,26 @@ public class MainActivity extends BaseActivity {
                 UserApi userApi = RetrofitUtil.Builder.create("http://47.106.132.104/").build(UserApi.class);
                 userApi.login("15880858837")
                         .compose(RxUtils.schedulersTransformer())
-                        .subscribe(entity -> {
-                            Log.e(TAG, entity);
-                        }, ex -> {
-                            Log.e(TAG, ex.toString());
-                        });
+                        .subscribe(entity -> T(entity),
+                                ex -> T(ex.toString()));
                 break;
             case R.id.bt_permission:
                 //权限请求样例
-                PermissionUtils.permission(PermissionConstants.LOCATION)
-                        .callback(new PermissionUtils.SimpleCallback() {
+                PermissionUtils.permission(PermissionConstants.CAMERA,PermissionConstants.STORAGE)
+                        .callback(new PermissionUtils.FullCallback() {
                             @Override
-                            public void onGranted() {
+                            public void onGranted(List<String> permissionsGranted) {
+                                T("ok");
                             }
 
                             @Override
-                            public void onDenied() {
-
+                            public void onDenied(List<String> permissionsDeniedForever, List<String> permissionsDenied) {
+                                T("no");
                             }
-                        });
+                        }).request();
                 break;
             case R.id.dagger_mvp:
+                //MVP+Dagger+Rxjava+Retrofit的架构demo用例
                 TestActivity.action(this);
                 break;
         }
