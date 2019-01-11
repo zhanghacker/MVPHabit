@@ -1,7 +1,7 @@
 # MVPHabit [![](https://www.jitpack.io/v/zhanghacker/HelperHabit.svg)](https://www.jitpack.io/#zhanghacker/HelperHabit)
 
 ## 简介
-&emsp;&emsp;**基于MVP模式开发框架，整合Rxjava+Retrofit+Dagger+Butterknife等主流模块，加入中一些比较常用的工具类，进行一些抽取和整合**。有人会说有市面上已经MVPArms框架封装不是挺好的，我只能告诉你，那个太冗余了，很多没必要的东西太多，本框架主要是轻量级，少冗余，可扩展性高一些。demo给出相应的架构例子，可自行下载查看。如果你觉得框架的某些代码有帮助到你，请你star支持一下，作者会一直维护，非常感谢！
+&emsp;&emsp;**基于MVP模式开发框架，整合Rxjava+Retrofit+Dagger+Butterknife等主流模块，加入中一些比较常用的工具类，进行一些抽取和整合**。该框架主要是轻量级，少冗余，可扩展性高一些。demo给出相应的架构例子，可自行下载查看。如果你觉得框架的某些代码有帮助到你，请你star支持一下，作者会一直维护，非常感谢！
 
 ## 1. 准备工作
 ### 1.1 依赖Library
@@ -163,7 +163,7 @@ TestPresenter继承BasePresenter</br>
 
 
 ## About us
-&emsp;&emsp;喜欢尝鲜，主要从事安卓，业余时间搞搞PythonWeb(个人博客正在建站中)，小程序等。对于项目我会一直更新维护，如果你感兴趣，请star一下。
+&emsp;&emsp;喜欢尝鲜，主要从事安卓，业余时间搞搞GoWeb(个人博客正在建站中)，小程序等。对于项目我会一直更新维护，如果你感兴趣，请star一下。
 
 </br>
 </br>
