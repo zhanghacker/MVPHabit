@@ -3,13 +3,6 @@ package com.itzxx.mvphabit.utils;
 import com.itzxx.helperlibrary.network.RetrofitUtil;
 import com.itzxx.mvphabit.UserApi;
 
-/**
- * ProjectName:  HelperHabit
- * Author:  xxzhang
- * CreateAt:  2018/9/6  9:28
- * Description:  类描述
- * Copyright © andacx Inc. All Rights Reserved
- */
 public class SingletonRxRetrofit {
 
     private static SingletonRxRetrofit okHttpClient;

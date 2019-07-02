@@ -26,7 +26,6 @@ public class TestPresenter extends BasePresenter implements TestContract.Present
         mCompositeDisposable.add(mUserApi.reqData(1,2)
                 .compose(RxUtils.schedulersTransformer())
                 .subscribe((String entity) -> mView.loadDataSuccess(entity),
-                        ex -> mView.loadDataSuccess(ex.toString())))
-       ;
+                        ex -> mView.loadDataSuccess(ex.toString())));
     }
 }
